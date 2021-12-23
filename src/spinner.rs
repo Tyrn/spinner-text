@@ -2,7 +2,7 @@ use crate::BDELIM_ICON;
 use spinner as daddy;
 use spinners as pretty;
 use std::time::Duration;
-use terminal_spinners as cute;
+use terminal_spinners as cutie;
 
 static MOON: [&'static str; 8] = [" 🌑", " 🌒", " 🌓", " 🌔", " 🌕", " 🌖", " 🌗", " 🌘"];
 
@@ -92,17 +92,17 @@ impl Spinner for PrettySpinner {
 }
 
 pub struct CutieSpinner {
-    spinner: Option<cute::SpinnerHandle>,
+    spinner: Option<cutie::SpinnerHandle>,
 }
 
 impl CutieSpinner {
     pub fn new() -> Self {
         Self {
             spinner: Some(
-                cute::SpinnerBuilder::new()
-                    .spinner(&cute::DOTS)
+                cutie::SpinnerBuilder::new()
+                    .spinner(&cutie::MOON)
                     .text("Unicorns!")
-                    .prefix("  ")
+                    .prefix(" ")
                     .start(),
             ),
         }

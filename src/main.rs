@@ -8,8 +8,8 @@ use std::{
 
 const BDELIM_ICON: &str = "\u{01f539}";
 
-const REVOLUTIONS: usize = 100;
-const WINK: u64 = 1; // ms.
+const REVOLUTIONS: u64 = 100;
+const WINK: u64 = 10; // ms.
 
 fn cycle(spinner: &mut dyn Spinner, name: &str) {
     let now = Instant::now();
@@ -19,7 +19,16 @@ fn cycle(spinner: &mut dyn Spinner, name: &str) {
         thread::sleep(Duration::from_millis(WINK));
     }
     spinner.stop();
-    println!("{}, time elapsed: {}", name, now.elapsed().as_secs_f64());
+
+    let raw_time = now.elapsed().as_secs_f64();
+    let wink_total = (WINK * REVOLUTIONS) as f64 / 1000_f64;
+
+    // Sleep delay should have no part in the picture.
+    println!(
+        "Time spent on message updates, {}: {:.4}",
+        name,
+        raw_time - wink_total
+    );
 }
 
 fn main() {
@@ -41,3 +50,6 @@ fn main() {
     let mut cutie = spin::CutieSpinner::new();
     cycle(&mut cutie, "Cutie");
 }
+
+#[cfg(test)]
+mod test_main;
