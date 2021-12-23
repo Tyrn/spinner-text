@@ -3,13 +3,13 @@ use crate::spinner as spin;
 use crate::spinner::Spinner;
 use std::{
     cmp,
-    thread,
     ffi::OsStr,
     fs, io,
     io::Write,
     path::{Path, PathBuf},
     process::exit,
-    time::{Instant, Duration},
+    thread,
+    time::{Duration, Instant},
 };
 
 const BDELIM_ICON: &str = "\u{01f539}";
