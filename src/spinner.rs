@@ -9,7 +9,7 @@ static MOON: [&'static str; 8] = [" 🌑", " 🌒", " 🌓", " 🌔", " 🌕", "
 pub struct DummySpinner {}
 
 impl DummySpinner {
-    fn new() -> Self {
+    pub fn new() -> Self {
         Self {}
     }
 }
