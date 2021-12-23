@@ -6,3 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+spinner = "0.5.0"
+spinners = "2.0.0"
+terminal-spinners = "0.3.2"
+
