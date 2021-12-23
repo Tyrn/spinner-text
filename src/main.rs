@@ -10,7 +10,6 @@ const BDELIM_ICON: &str = "\u{01f539}";
 
 const REVOLUTIONS: u64 = 100;
 const WINK: u64 = 10; // ms.
-
 fn cycle(spinner: &mut dyn Spinner, name: &str) {
     let now = Instant::now();
 
@@ -25,9 +24,10 @@ fn cycle(spinner: &mut dyn Spinner, name: &str) {
 
     // Sleep delay should have no part in the picture.
     println!(
-        "Time spent on message updates, {}: {:.4}",
+        "Time spent on message updates, {}: {:.4}, Total: {:.2}",
         name,
-        raw_time - wink_total
+        raw_time - wink_total,
+        raw_time,
     );
 }
 
